@@ -60,6 +60,28 @@
         .app-details {
             margin-top: 10px; /* Add margin at the top of app details */
         }
+
+        /* Button styling */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #044183;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .button:hover {
+            background-color: #022040;
+        }
     </style>
 </head>
 <body>
@@ -67,74 +89,16 @@
         <h1>AppCraft</h1>
         <br>
         <div id="appList"></div>
+        <div class="button-container">
+            <a href="Sideloading.html" class="button">Sideloading</a>
+            <a href="Trollstore.html" class="button">Trollstore</a>
+            <a href="All.html" class="button">All</a>
+        </div>
     </div>
-
-    <script>
-        if ('standalone' in window.navigator && window.navigator.standalone) {
-        }
-        
-        function loadApplerIni() {
-            fetch('Appler.ini')
-                .then(response => response.text())
-                .then(data => {
-                    const appEntries = data.split('\n');
-                    const appList = document.getElementById('appList');
-
-                    appEntries.forEach((entry, index) => {
-                        if (!entry.startsWith('//')) {
-                            const appInfo = entry.split('|');
-                            if (appInfo.length === 4) {
-                                const appData = {
-                                    appName: appInfo[0].trim(),
-                                    downloadLink: appInfo[1].trim(),
-                                    appVersion: appInfo[2].trim(),
-                                    logoUrl: appInfo[3].trim()
-                                };
-
-                                const appElement = document.createElement('div');
-                                appElement.classList.add('app');
-
-                                const appIcon = document.createElement('img');
-                                appIcon.src = appData.logoUrl;
-                                appIcon.alt = appData.appName;
-
-                                const appDetailsContainer = document.createElement('div');
-                                appDetailsContainer.classList.add('app-details');
-
-                                const appNameElement = document.createElement('h2');
-                                appNameElement.textContent = appData.appName;
-
-                                const appVersionElement = document.createElement('p');
-                                appVersionElement.textContent = 'Version: ' + appData.appVersion;
-
-                                const downloadButton = document.createElement('button');
-                                downloadButton.classList.add('download-button');
-                                downloadButton.textContent = 'Download';
-
-                                // Add a click event handler to the download button
-                                downloadButton.addEventListener('click', function () {
-                                    // Use the download link from appData
-                                    window.location.href = appData.downloadLink;
-                                });
-
-                                appElement.appendChild(appIcon);
-                                appDetailsContainer.appendChild(appNameElement);
-                                appDetailsContainer.appendChild(appVersionElement);
-                                appElement.appendChild(appDetailsContainer);
-                                appElement.appendChild(downloadButton);
-
-                                appList.appendChild(appElement);
-                            }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading Appler.ini file:', error);
-                });
-        }
-
-        loadApplerIni();
-    </script>
-
 </body>
+<center><h1>Sideloading: <p><h3>The sideloading page if for using apps like altstore or scarlet.</h3></p></h1></center>
+<br>
+<center><h1>Trollstore: <p><h3>The sideloading page if for using apps like Trollstore or any IPA isntaller for a jailbroken device.</h3></p></h1></center>
+<br>
+<center><h1>All: <p><h3>The All page is used for IPA's that will run on both</h3></p></h1></center>
 </html>
