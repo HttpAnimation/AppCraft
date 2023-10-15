@@ -1,0 +1,5 @@
+192.168.0.191 - - [14/Oct/2023 23:49:48] "GET / HTTP/1.1" 200 -
+192.168.0.191 - - [14/Oct/2023 23:49:48] "GET /Appler.ini HTTP/1.1" 200 -
+192.168.0.191 - - [14/Oct/2023 23:49:48] "GET /Photos/minecraft-icon-1024x1024-3v7afpnj.png HTTP/1.1" 200 -
+192.168.0.191 - - [14/Oct/2023 23:49:48] code 404, message File not found
+192.168.0.191 - - [14/Oct/2023 23:49:48] "GET /favicon.ico HTTP/1.1" 404 -
