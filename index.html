@@ -72,7 +72,7 @@
     <script>
         if ('standalone' in window.navigator && window.navigator.standalone) {
         }
-        // Function to load and parse the Appler.ini file
+        
         function loadApplerIni() {
             fetch('Appler.ini')
                 .then(response => response.text())
@@ -81,7 +81,6 @@
                     const appList = document.getElementById('appList');
 
                     appEntries.forEach((entry, index) => {
-                        // Check if the entry starts with '//', which indicates it's a comment
                         if (!entry.startsWith('//')) {
                             const appInfo = entry.split('|');
                             if (appInfo.length === 4) {
@@ -95,29 +94,29 @@
                                 const appElement = document.createElement('div');
                                 appElement.classList.add('app');
 
-                                // Create the app icon element
                                 const appIcon = document.createElement('img');
                                 appIcon.src = appData.logoUrl;
                                 appIcon.alt = appData.appName;
 
-                                // Create a container for app details (name and version)
                                 const appDetailsContainer = document.createElement('div');
                                 appDetailsContainer.classList.add('app-details');
 
-                                // Create the app name element
                                 const appNameElement = document.createElement('h2');
                                 appNameElement.textContent = appData.appName;
 
-                                // Create the app version element
                                 const appVersionElement = document.createElement('p');
                                 appVersionElement.textContent = 'Version: ' + appData.appVersion;
 
-                                // Create a download button
                                 const downloadButton = document.createElement('button');
                                 downloadButton.classList.add('download-button');
                                 downloadButton.textContent = 'Download';
 
-                                // Add the app icon, details, and download button to the app element
+                                // Add a click event handler to the download button
+                                downloadButton.addEventListener('click', function () {
+                                    // Use the download link from appData
+                                    window.location.href = appData.downloadLink;
+                                });
+
                                 appElement.appendChild(appIcon);
                                 appDetailsContainer.appendChild(appNameElement);
                                 appDetailsContainer.appendChild(appVersionElement);
@@ -135,7 +134,7 @@
         }
 
         loadApplerIni();
-    
     </script>
+
 </body>
 </html>
