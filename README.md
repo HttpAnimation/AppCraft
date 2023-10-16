@@ -12,3 +12,5 @@ To install [AppCraft](https://github.com/HttpAnimation/AppCraft) go the the main
 ## Uninstall 
 To uninstall head to the home screen and hold down on the app and hit Delete Bookmark
 
+## App not updating
+If the app pages are not updating delete the app and go the website on safari and reload the pages then reinstall.
