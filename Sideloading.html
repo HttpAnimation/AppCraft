@@ -71,71 +71,87 @@
 
     <script>
         if ('standalone' in window.navigator && window.navigator.standalone) {
+            // Do something if the app is running in standalone mode
         }
-        
+
         function loadApplerIni() {
+            // Fetch the first INI file
             fetch('Repos/Sideloading.ini')
+                .then(response => response.text())
+                .then(data => {
+                    // Process the data from the first INI file
+                    processData(data);
+                })
+                .catch(error => {
+                    console.error('Error loading Trollstore.ini file:', error);
+                });
+
+            // Fetch the second INI file
             fetch('Repos/All.ini')
                 .then(response => response.text())
                 .then(data => {
-                    const appEntries = data.split('\n');
-                    const appList = document.getElementById('appList');
-
-                    appEntries.forEach((entry, index) => {
-                        if (!entry.startsWith('//')) {
-                            const appInfo = entry.split('|');
-                            if (appInfo.length === 4) {
-                                const appData = {
-                                    appName: appInfo[0].trim(),
-                                    downloadLink: appInfo[1].trim(),
-                                    appVersion: appInfo[2].trim(),
-                                    logoUrl: appInfo[3].trim()
-                                };
-
-                                const appElement = document.createElement('div');
-                                appElement.classList.add('app');
-
-                                const appIcon = document.createElement('img');
-                                appIcon.src = appData.logoUrl;
-                                appIcon.alt = appData.appName;
-
-                                const appDetailsContainer = document.createElement('div');
-                                appDetailsContainer.classList.add('app-details');
-
-                                const appNameElement = document.createElement('h2');
-                                appNameElement.textContent = appData.appName;
-
-                                const appVersionElement = document.createElement('p');
-                                appVersionElement.textContent = 'Version: ' + appData.appVersion;
-
-                                const downloadButton = document.createElement('button');
-                                downloadButton.classList.add('download-button');
-                                downloadButton.textContent = 'Download';
-
-                                // Add a click event handler to the download button
-                                downloadButton.addEventListener('click', function () {
-                                    // Use the download link from appData
-                                    window.location.href = appData.downloadLink;
-                                });
-
-                                appElement.appendChild(appIcon);
-                                appDetailsContainer.appendChild(appNameElement);
-                                appDetailsContainer.appendChild(appVersionElement);
-                                appElement.appendChild(appDetailsContainer);
-                                appElement.appendChild(downloadButton);
-
-                                appList.appendChild(appElement);
-                            }
-                        }
-                    });
+                    // Process the data from the second INI file
+                    processData(data);
                 })
                 .catch(error => {
-                    console.error('Error loading Appler.ini file:', error);
+                    console.error('Error loading All.ini file:', error);
                 });
+        }
+
+        function processData(data) {
+            const appEntries = data.split('\n');
+            const appList = document.getElementById('appList');
+
+            appEntries.forEach((entry, index) => {
+                if (!entry.startsWith('//')) {
+                    const appInfo = entry.split('|');
+                    if (appInfo.length === 4) {
+                        const appData = {
+                            appName: appInfo[0].trim(),
+                            downloadLink: appInfo[1].trim(),
+                            appVersion: appInfo[2].trim(),
+                            logoUrl: appInfo[3].trim()
+                        };
+
+                        const appElement = document.createElement('div');
+                        appElement.classList.add('app');
+
+                        const appIcon = document.createElement('img');
+                        appIcon.src = appData.logoUrl;
+                        appIcon.alt = appData.appName;
+
+                        const appDetailsContainer = document.createElement('div');
+                        appDetailsContainer.classList.add('app-details');
+
+                        const appNameElement = document.createElement('h2');
+                        appNameElement.textContent = appData.appName;
+
+                        const appVersionElement = document.createElement('p');
+                        appVersionElement.textContent = 'Version: ' + appData.appVersion;
+
+                        const downloadButton = document.createElement('button');
+                        downloadButton.classList.add('download-button');
+                        downloadButton.textContent = 'Download';
+
+                        // Add a click event handler to the download button
+                        downloadButton.addEventListener('click', function () {
+                            // Use the download link from appData
+                            window.location.href = appData.downloadLink;
+                        });
+
+                        appElement.appendChild(appIcon);
+                        appDetailsContainer.appendChild(appNameElement);
+                        appDetailsContainer.appendChild(appVersionElement);
+                        appElement.appendChild(appDetailsContainer);
+                        appElement.appendChild(downloadButton);
+
+                        appList.appendChild(appElement);
+                    }
+                }
+            });
         }
 
         loadApplerIni();
     </script>
-
 </body>
 </html>
