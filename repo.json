@@ -1,43 +1,13 @@
 {
-    "name": "AppCraft",
-    "identifier": "com.HttpAnimations.AppCraft",
-    "sourceURL": "https://mysource.com/apps.json"
-}
-
-"apps": [
-    {
-      "name": "My App",
-      "bundleIdentifier": "com.myname.myapp",
-      "developerName": "My Name",
-      "subtitle": "The newest and greatest app around.",
-      "versions": [
+    "name": "My Simple Source",
+    "identifier": "com.myname.simplesource",
+    "apps": [
         {
-          "version": "1.1",
-          "date": "2020-04-21",
-          "localizedDescription": "Bug fixes.",
-          "downloadURL": "https://myapp.com/myapp-1.1.ipa",
-          "size": 87129
-        },
-        {
-          "version": "1.0",
-          "date": "2020-03-30",
-          "localizedDescription": "First AltStore release!",
-          "downloadURL": "https://myapp.com/myapp-1.0.ipa",
-          "size": 79821
-        }
-      ],
-      "localizedDescription": "Features include:\n\n• Cool graphics\n• Top notch performance\n• Satisfying interactions",
-      "iconURL": "https://myapp.com/assets/icon.png",
-      "tintColor": "8A28F7",
-      "permissions": [
-        {
-          "type": "photos",
-          "usageDescription": "Allows you to use your photo library to set your profile image."
-        }
-      ],
-      "screenshotURLs": [
-        "https://myapp.com/assets/screen0.png"
-      ],
-      "beta": false
-    }
-  ],
+            "name": "Simple App 1",
+            "localizedDescription": "A basic app with minimal features.",
+            "iconURL": "https://myapp.com/assets/app1-icon.png",
+            "downloadURL": "https://myapp.com/apps/simple-app-1.ipa"
+          }          
+    ]
+  }
+  
