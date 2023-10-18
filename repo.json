@@ -6,7 +6,8 @@
             "name": "AppCraft",
             "localizedDescription": "An IPA downloader.",
             "iconURL": "https://httpanimation.github.io/AppCraft/Photos/AC.png",
-            "downloadURL": "https://github.com/HttpAnimation/AppCraft/raw/gh-pages/AppCraft.ipa"
+            "downloadURL": "https://github.com/HttpAnimation/AppCraft/raw/gh-pages/AppCraft.ipa",
+            "bundleIdentifier": "com.AppCraftIOS.AppCraft"
         }
     ]
 }
