@@ -3,10 +3,10 @@
     "identifier": "com.HttpAnimations.AppCraft",
     "apps": [
         {
-            "name": "Simple App 1",
-            "localizedDescription": "A basic app with minimal features.",
-            "iconURL": "https://myapp.com/assets/app1-icon.png",
-            "downloadURL": "https://myapp.com/apps/simple-app-1.ipa"
+            "name": "AppCraft",
+            "localizedDescription": "An IPA downloader.",
+            "iconURL": "https://httpanimation.github.io/AppCraft/Photos/AC.png",
+            "downloadURL": "https://github.com/HttpAnimation/AppCraft/raw/gh-pages/AppCraft.ipa"
           }          
     ]
   }
